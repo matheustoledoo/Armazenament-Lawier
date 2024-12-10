@@ -57,33 +57,37 @@ router.post('/register', async (req, res) => {
 });
 
 // Login a user
+// Login a user
 router.post('/login', async (req, res) => {
-    const { email, password } = req.body;
-    try {
-        // Find user by email
-        const user = await User.findOne({ where: { email } });
-        if (!user) return res.status(404).send('User not found');
+  const { email, password } = req.body;
+  try {
+      // Find user by email
+      const user = await User.findOne({ where: { email } });
+      if (!user) return res.status(404).send('User not found');
 
-        // Compare password
-        const validPassword = await bcrypt.compare(password, user.password);
-        if (!validPassword) return res.status(401).send('Invalid credentials');
+      // Compare password
+      const validPassword = await bcrypt.compare(password, user.password);
+      if (!validPassword) return res.status(401).send('Invalid credentials');
 
-        // Generate token
-        const token = jwt.sign(
-            { id: user.id, email: user.email },
-            process.env.SESSION_SECRET,
-            { expiresIn: '1h' }
-        );
+      // Debugging the SESSION_SECRET
+      console.log("SESSION_SECRET:", process.env.SESSION_SECRET);
 
-        // Send token as cookie
-        res.cookie('token', token, { httpOnly: true });
+      // Generate token
+      const token = jwt.sign(
+          { id: user.id, email: user.email },
+          process.env.SESSION_SECRET,
+          { expiresIn: '1h' }
+      );
 
-        // Redirect to the main page after login
-        res.redirect('/');
-    } catch (err) {
-        console.error(err);
-        res.status(500).send('Internal Server Error');
-    }
+      // Send token as cookie
+      res.cookie('token', token, { httpOnly: true });
+
+      // Redirect to the main page after login
+      res.redirect('/');
+  } catch (err) {
+      console.error(err);
+      res.status(500).send('Internal Server Error');
+  }
 });
 
 // Logout a user
