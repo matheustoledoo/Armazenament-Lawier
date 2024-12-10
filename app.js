@@ -9,13 +9,15 @@ const dotenv = require('dotenv');
 const { sequelize } = require('./config/database');
 const moment = require('moment');
 
+process.env.NODE_ENV = 'production';
+
 
 
 // Configuração de variáveis de ambiente
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 // Middlewares
 app.use(bodyParser.urlencoded({ extended: false }));
