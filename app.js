@@ -65,7 +65,8 @@ app.get('/', (req, res) => {
 });
 
 // Conexão com o banco e início do servidor
-sequelize.sync({ force: false }).then(() => {
-  console.log('Database connected');
-  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-}).catch(err => console.error('Database connection error:', err));
+sequelize.sync().then(() => {
+    app.listen(3000, () => console.log('Server running on port 3000'));
+}).catch(err => {
+    console.error('Unable to connect to the database:', err);
+});
