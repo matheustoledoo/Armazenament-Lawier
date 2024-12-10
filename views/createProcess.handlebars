@@ -1,0 +1,289 @@
+<!-- views/createProcess.handlebars -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Processo - Justice Process Manager</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+    <main class="create-container">
+        <h1 class="create-title">Criar Novo Processo</h1>
+        <form action="/process/create" method="POST" class="create-form">
+            <fieldset class="form-section" >
+                <legend class="form-legend">Dados Cadastrais</legend >
+                <div class="form-group">
+                <label for="numeroProcesso">Número do Processo:</label>
+                <input type="text" id="numeroProcesso" name="numeroProcesso" >
+
+                <label for="acao">Ação:</label>
+                <input type="text" id="acao" name="acao" >
+
+                <label for="forum">Fórum:</label>
+                <input type="text" id="forum" name="forum" >
+
+                <label for="vara">Vara:</label>
+                <input type="text" id="vara" name="vara" >
+
+                <label for="juiz">Juiz:</label>
+                <input type="text" id="juiz" name="juiz" >
+
+                <label for="escrevente">Escrevente:</label>
+                <input type="text" id="escrevente" name="escrevente">
+
+                <label for="emailVara">Email da Vara:</label>
+                <input type="email" id="emailVara" name="emailVara">
+
+                <label for="telefoneVara">Telefone da Vara:</label>
+                <input type="text" id="telefoneVara" name="telefoneVara">
+
+                <label for="requerente">Requerente:</label>
+                <input type="text" id="requerente" name="requerente">
+
+                <label for="advogadoRequerente">Advogado do Requerente/Escritório:</label>
+                <input type="text" id="advogadoRequerente" name="advogadoRequerente">
+
+                <label for="telefoneRequerente">Telefone do Requerente:</label>
+                <input type="text" id="telefoneRequerente" name="telefoneRequerente">
+
+                <label for="emailRequerente">E-mail do Requerente:</label>
+                <input type="email" id="emailRequerente" name="emailRequerente">
+
+                <label for="requerido">Requerido:</label>
+                <input type="text" id="requerido" name="requerido">
+
+                <label for="advogadoRequerido">Advogado do Requerido/Escritório:</label>
+                <input type="text" id="advogadoRequerido" name="advogadoRequerido">
+
+                <label for="telefoneRequerido">Telefone do Requerido:</label>
+                <input type="text" id="telefoneRequerido" name="telefoneRequerido">
+
+                <label for="emailRequerido">E-mail do Requerido:</label>
+                <input type="email" id="emailRequerido" name="emailRequerido">
+
+                <label for="perito">Perito:</label>
+                <input type="text" id="perito" name="perito">
+
+                <label for="telefonePerito">Telefone do Perito:</label>
+                <input type="text" id="telefonePerito" name="telefonePerito">
+
+                <label for="emailPerito">E-mail do Perito:</label>
+                <input type="email" id="emailPerito" name="emailPerito">
+
+                <label for="assistenteTecnico">Assistente Técnico:</label>
+                <input type="text" id="assistenteTecnico" name="assistenteTecnico">
+
+                <label for="telefoneAssistenteTecnico">Telefone do Assistente Técnico:</label>
+                <input type="text" id="telefoneAssistenteTecnico" name="telefoneAssistenteTecnico">
+
+                <label for="emailAssistenteTecnico">E-mail do Assistente Técnico:</label>
+                <input type="email" id="emailAssistenteTecnico" name="emailAssistenteTecnico">
+                </div>
+            </fieldset >
+
+            <fieldset class="form-section">
+                <legend class="form-legend">Fase do Processo</legend >
+                <div class="form-group">
+                <label for="nomeacao">Nomeação:</label>
+                <input type="text" id="nomeacao" name="nomeacao">
+
+                <label for="dataNomeacao">Data:</label>
+                <input type="date" id="dataNomeacao" name="dataNomeacao">
+                </div>
+            </fieldset >
+
+            <fieldset class="form-section">
+                <legend class="form-legend">Honorários</legend >
+                <div class="form-group">
+                <label for="fontePagadora">Fonte Pagadora:</label>
+                <select id="fontePagadora" name="fontePagadora">
+                    <option value="PGE">PGE</option>
+                    <option value="Particular">Particular</option>
+                </select>
+
+                <label for="honorariosProvisorios">Provisórios:</label>
+                <select id="honorariosProvisorios" name="honorariosProvisorios">
+                    <option value="true">Sim</option>
+                    <option value="false">Não</option>
+                </select>
+
+                <label for="valorProvisorios">Valor Provisórios:</label>
+                <input type="number" id="valorProvisorios" name="valorProvisorios" step="0.01">
+
+                <label for="depositadoProvisorios">Depositado Provisórios:</label>
+                <select id="depositadoProvisorios" name="depositadoProvisorios">
+                    <option value="true">Sim</option>
+                    <option value="false">Não</option>
+                </select>
+
+                <label for="folhaProvisorios">Folha Provisórios:</label>
+                <input type="text" id="folhaProvisorios" name="folhaProvisorios">
+
+                <label for="honorariosDefinitivos">Definitivos:</label>
+                <select id="honorariosDefinitivos" name="honorariosDefinitivos">
+                    <option value="true">Sim</option>
+                    <option value="false">Não</option>
+                </select>
+
+                <label for="valorDefinitivos">Valor Definitivos:</label>
+                <input type="number" id="valorDefinitivos" name="valorDefinitivos" step="0.01">
+
+                <label for="depositadoDefinitivos">Depositado Definitivos:</label>
+                <select id="depositadoDefinitivos" name="depositadoDefinitivos">
+                    <option value="true">Sim</option>
+                    <option value="false">Não</option>
+                </select>
+
+                <label for="folhaDefinitivos">Folha Definitivos:</label>
+                <input type="text" id="folhaDefinitivos" name="folhaDefinitivos">
+
+                <label for="estimativaHonorarios">Estimativa de Honorários:</label>
+                <select id="estimativaHonorarios" name="estimativaHonorarios">
+                    <option value="true">Sim</option>
+                    <option value="false">Não</option>
+                </select>
+
+                <label for="valorEstimativaHonorarios">Valor Estimativa de Honorários:</label>
+                <input type="number" id="valorEstimativaHonorarios" name="valorEstimativaHonorarios" step="0.01">
+
+                <label for="deferidoJuiz">Deferido Juiz:</label>
+                <select id="deferidoJuiz" name="deferidoJuiz">
+                    <option value="true">Sim</option>
+                    <option value="false">Não</option>
+                </select>
+
+                <label for="contestacaoParte">Contestação da Parte:</label>
+                <input type="text" id="contestacaoParte" name="contestacaoParte">
+
+                <label for="folhaEstimativaHonorario">Folha Estimativa Honorário:</label>
+                <input type="text" id="folhaEstimativaHonorario" name="folhaEstimativaHonorario">
+
+                                <label for="justificativaHonorarios">Justificativa dos Honorários:</label>
+                <textarea id="justificativaHonorarios" name="justificativaHonorarios"></textarea>
+
+                <label for="dataJustificativa">Data:</label>
+                <input type="date" id="dataJustificativa" name="dataJustificativa">
+
+                <label for="peticaoRecebimento">Petição para Recebimento:</label>
+                <select id="peticaoRecebimento" name="peticaoRecebimento">
+                    <option value="true">Sim</option>
+                    <option value="false">Não</option>
+                </select>
+
+                <label for="valorPeticaoRecebimento">Valor Petição para Recebimento:</label>
+                <input type="number" id="valorPeticaoRecebimento" name="valorPeticaoRecebimento" step="0.01">
+
+                <label for="folhaPeticaoRecebimento">Folha Petição para Recebimento:</label>
+                <input type="text" id="folhaPeticaoRecebimento" name="folhaPeticaoRecebimento">
+
+                <label for="mle">MLE:</label>
+                <input type="text" id="mle" name="mle">
+
+                <label for="dataMle">Data MLE:</label>
+                <input type="date" id="dataMle" name="dataMle">
+                </div>
+            </fieldset >
+
+            <fieldset class="form-section">
+                <legend class="form-legend">Vistoria</legend >
+                <div class="form-group">
+                <label for="agendamentoVistoria">Agendamento:</label>
+                <input type="text" id="agendamentoVistoria" name="agendamentoVistoria">
+
+                <label for="dataVistoria">Data:</label>
+                <input type="date" id="dataVistoria" name="dataVistoria">
+                </div>
+            </fieldset >
+
+            <fieldset class="form-section">
+                <legend class="form-legend">Laudo</legend >
+                 <div class="form-group">
+                <label for="laudoNaoIniciado">Laudo Não Iniciado:</label>
+                <select id="laudoNaoIniciado" name="laudoNaoIniciado">
+                    <option value="true">Sim</option>
+                    <option value="false">Não</option>
+                </select>
+
+                <label for="motivoNaoIniciado">Motivo:</label>
+                <input type="text" id="motivoNaoIniciado" name="motivoNaoIniciado">
+
+                <label for="dataNaoIniciado">Data:</label>
+                <input type="date" id="dataNaoIniciado" name="dataNaoIniciado">
+
+                <label for="laudoIniciado">Laudo Iniciado:</label>
+                <select id="laudoIniciado" name="laudoIniciado">
+                    <option value="true">Sim</option>
+                    <option value="false">Não</option>
+                </select>
+
+                <label for="conclusaoLaudo">Conclusão:</label>
+                <input type="text" id="conclusaoLaudo" name="conclusaoLaudo">
+
+                <label for="dataConclusao">Data Conclusão:</label>
+                <input type="date" id="dataConclusao" name="dataConclusao">
+
+                <label for="laudoParalisado">Laudo Paralisado:</label>
+<select id="laudoParalisado" name="laudoParalisado">
+    <option value="true">Sim</option>
+    <option value="false">Não</option>
+</select>
+
+<label for="motivoParalisado">Motivo Paralisado:</label>
+<input type="text" id="motivoParalisado" name="motivoParalisado">
+
+<label for="dataParalisado">Data Paralisado:</label>
+<input type="date" id="dataParalisado" name="dataParalisado">
+</div>
+            </fieldset>
+
+            <fieldset class="form-section">
+                <legend class="form-legend">Esclarecimentos</legend>
+                <div class="form-group">
+                <label for="esclarecimentosNaoIniciado">Esclarecimentos Não Iniciado:</label>
+                <select id="esclarecimentosNaoIniciado" name="esclarecimentosNaoIniciado">
+                    <option value="true">Sim</option>
+                    <option value="false">Não</option>
+                </select>
+
+                <label for="motivoNaoIniciadoEsclarecimentos">Motivo:</label>
+                <input type="text" id="motivoNaoIniciadoEsclarecimentos" name="motivoNaoIniciadoEsclarecimentos">
+
+                <label for="dataNaoIniciadoEsclarecimentos">Data:</label>
+                <input type="date" id="dataNaoIniciadoEsclarecimentos" name="dataNaoIniciadoEsclarecimentos">
+
+                <label for="esclarecimentosIniciado">Esclarecimentos Iniciado:</label>
+<select id="esclarecimentosIniciado" name="esclarecimentosIniciado">
+    <option value="true">Sim</option>
+    <option value="false">Não</option>
+</select>
+
+<label for="conclusaoEsclarecimentos">Conclusão dos Esclarecimentos:</label>
+<input type="text" id="conclusaoEsclarecimentos" name="conclusaoEsclarecimentos">
+
+<label for="dataConclusaoEsclarecimentos">Data Conclusão:</label>
+<input type="date" id="dataConclusaoEsclarecimentos" name="dataConclusaoEsclarecimentos">
+
+<label for="esclarecimentosParalisado">Esclarecimentos Paralisado:</label>
+<select id="esclarecimentosParalisado" name="esclarecimentosParalisado">
+    <option value="true">Sim</option>
+    <option value="false">Não</option>
+</select>
+
+<label for="motivoParalisadoEsclarecimentos">Motivo Paralisado:</label>
+<input type="text" id="motivoParalisadoEsclarecimentos" name="motivoParalisadoEsclarecimentos">
+
+<label for="dataParalisadoEsclarecimentos">Data Paralisado:</label>
+<input type="date" id="dataParalisadoEsclarecimentos" name="dataParalisadoEsclarecimentos">
+</div>
+
+            </fieldset >
+
+            <button type="submit" class="submit-button">Cadastrar Processo</button>
+        </form>
+    </main>
+
+ 
+</body>
+</html>
