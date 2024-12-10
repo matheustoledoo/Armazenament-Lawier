@@ -64,26 +64,35 @@ router.get('/edit/:id', authenticateToken, async (req, res) => {
     if (!process || process.userId !== req.user.id) {
       return res.status(403).send('Forbidden');
     }
-    res.render('editProcess', {
-      process: {
-        ...process.toJSON(),
-        dataNomeacao: moment(process.dataNomeacao).format('YYYY-MM-DD'),
-        dataJustificativa: moment(process.dataJustificativa).format('YYYY-MM-DD'),
-        dataMle: moment(process.dataMle).format('YYYY-MM-DD'),
-        dataVistoria: moment(process.dataVistoria).format('YYYY-MM-DD'),
-        dataNaoIniciado: moment(process.dataNaoIniciado).format('YYYY-MM-DD'),
-        dataConclusao: moment(process.dataConclusao).format('YYYY-MM-DD'),
-        dataParalisado: moment(process.dataParalisado).format('YYYY-MM-DD'),
-        dataNaoIniciadoEsclarecimentos: moment(process.dataNaoIniciadoEsclarecimentos).format('YYYY-MM-DD'),
-        dataConclusaoEsclarecimentos: moment(process.dataConclusaoEsclarecimentos).format('YYYY-MM-DD'),
-        dataParalisadoEsclarecimentos: moment(process.dataParalisadoEsclarecimentos).format('YYYY-MM-DD'),
-      },
-    });
+
+    // Verifique e formate todas as datas no formato esperado pelo input type="date"
+    const formattedProcess = {
+      ...process.toJSON(),
+      dataNomeacao: process.dataNomeacao ? moment(process.dataNomeacao).format('YYYY-MM-DD') : '',
+      dataJustificativa: process.dataJustificativa ? moment(process.dataJustificativa).format('YYYY-MM-DD') : '',
+      dataMle: process.dataMle ? moment(process.dataMle).format('YYYY-MM-DD') : '',
+      dataVistoria: process.dataVistoria ? moment(process.dataVistoria).format('YYYY-MM-DD') : '',
+      dataNaoIniciado: process.dataNaoIniciado ? moment(process.dataNaoIniciado).format('YYYY-MM-DD') : '',
+      dataConclusao: process.dataConclusao ? moment(process.dataConclusao).format('YYYY-MM-DD') : '',
+      dataParalisado: process.dataParalisado ? moment(process.dataParalisado).format('YYYY-MM-DD') : '',
+      dataNaoIniciadoEsclarecimentos: process.dataNaoIniciadoEsclarecimentos
+        ? moment(process.dataNaoIniciadoEsclarecimentos).format('YYYY-MM-DD')
+        : '',
+      dataConclusaoEsclarecimentos: process.dataConclusaoEsclarecimentos
+        ? moment(process.dataConclusaoEsclarecimentos).format('YYYY-MM-DD')
+        : '',
+      dataParalisadoEsclarecimentos: process.dataParalisadoEsclarecimentos
+        ? moment(process.dataParalisadoEsclarecimentos).format('YYYY-MM-DD')
+        : '',
+    };
+
+    res.render('editProcess', { process: formattedProcess });
   } catch (err) {
     console.error(err);
     res.status(500).send('Internal Server Error');
   }
 });
+
 
 
 router.post('/edit/:id', authenticateToken, async (req, res) => {
