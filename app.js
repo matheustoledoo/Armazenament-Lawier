@@ -4,6 +4,7 @@ const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const SequelizeStore = require('connect-session-sequelize')(session.Store); // Importa o Sequelize Store
 const dotenv = require('dotenv');
 const { sequelize } = require('./config/database');
 const moment = require('moment');
@@ -20,11 +21,25 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(session({
-  secret: process.env.SESSION_SECRET || 'secret_key',
-  resave: false,
-  saveUninitialized: true,
-}));
+// Configuração do armazenamento de sessões no banco de dados
+const sessionStore = new SequelizeStore({
+    db: sequelize, // Usa a conexão do Sequelize configurada
+  });
+  
+  app.use(
+    session({
+      secret: process.env.SESSION_SECRET || 'secret_key', // Chave secreta da sessão
+      store: sessionStore, // Armazena sessões no banco
+      resave: false,
+      saveUninitialized: false, // Apenas salva sessões se houver dados
+      cookie: {
+        maxAge: 1000 * 60 * 60 * 24, // 1 dia
+      },
+    })
+  );
+
+  // Sincronizar a tabela de sessões com o banco de dados
+sessionStore.sync();
 
 // Registro de helpers do Handlebars
 const hbs = exphbs.create({
@@ -65,8 +80,11 @@ app.get('/', (req, res) => {
 });
 
 // Conexão com o banco e início do servidor
-sequelize.sync().then(() => {
-    app.listen(3000, () => console.log('Server running on port 3000'));
-}).catch(err => {
+sequelize
+  .sync()
+  .then(() => {
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  })
+  .catch((err) => {
     console.error('Unable to connect to the database:', err);
-});
+  });
