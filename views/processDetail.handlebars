@@ -116,7 +116,7 @@
                 </tr>
                 <tr>
                     <th>Honorários Provisórios:</th>
-                    <td>{{process.honorariosProvisorios}}</td>
+                    <td>{{#if process.honorariosProvisorios}}Sim{{else}}Não{{/if}}</td>
                 </tr>
                 <tr>
                     <th>Valor Provisórios:</th>
@@ -124,7 +124,7 @@
                 </tr>
                 <tr>
                     <th>Depositado Provisórios:</th>
-                    <td>{{process.depositadoProvisorios}}</td>
+                    <td>{{#if process.depositadoProvisorios}}Sim{{else}}Não{{/if}}</td>
                 </tr>
                 <tr>
                     <th>Folha Provisórios:</th>
@@ -132,7 +132,7 @@
                 </tr>
                 <tr>
                     <th>Honorários Definitivos:</th>
-                    <td>{{process.honorariosDefinitivos}}</td>
+                    <td>{{#if process.honorariosDefinitivos}}Sim{{else}}Não{{/if}}</td>
                 </tr>
                 <tr>
                     <th>Valor Definitivos:</th>
@@ -140,7 +140,7 @@
                 </tr>
                 <tr>
                     <th>Depositado Definitivos:</th>
-                    <td>{{process.depositadoDefinitivos}}</td>
+                    <td>{{#if process.depositadoDefinitivos}}Sim{{else}}Não{{/if}}</td>
                 </tr>
                 <tr>
                     <th>Folha Definitivos:</th>
@@ -148,7 +148,7 @@
                 </tr>
                 <tr>
                     <th>Estimativa de Honorários:</th>
-                    <td>{{process.estimativaHonorarios}}</td>
+                    <td>{{#if process.estimativaHonorarios}}Sim{{else}}Não{{/if}}</td>
                 </tr>
                 <tr>
                     <th>Valor Estimativa Honorários:</th>
@@ -156,7 +156,7 @@
                 </tr>
                 <tr>
                     <th>Deferido Juiz:</th>
-                    <td>{{process.deferidoJuiz}}</td>
+                    <td>{{#if process.deferidoJuiz}}Sim{{else}}Não{{/if}}</td>
                 </tr>
                 <tr>
                     <th>Contestação da Parte:</th>
@@ -176,7 +176,7 @@
                 </tr>
                 <tr>
                     <th>Petição para Recebimento:</th>
-                    <td>{{process.peticaoRecebimento}}</td>
+                    <td>{{#if process.peticaoRecebimento}}Sim{{else}}Não{{/if}}</td>
                 </tr>
                 <tr>
                     <th>Valor Petição para Recebimento:</th>
@@ -204,7 +204,7 @@
                 </tr>
                 <tr>
                     <th>Laudo Não Iniciado:</th>
-                    <td>{{process.laudoNaoIniciado}}</td>
+                    <td>{{#if process.laudoNaoIniciado}}Sim{{else}}Não{{/if}}</td>
                 </tr>
                 <tr>
                     <th>Motivo Não Iniciado:</th>
@@ -214,8 +214,8 @@
                     <th>Data Não Iniciado:</th>
                     <td>{{process.dataNaoIniciado}}</td>
                 </tr>
-                                    <th>Laudo Iniciado:</th>
-                    <td>{{process.laudoIniciado}}</td>
+                    <th>Laudo Iniciado:</th>
+                    <td>{{#if process.laudoIniciado}}Sim{{else}}Não{{/if}}</td>
                 </tr>
                 <tr>
                     <th>Conclusão Laudo:</th>
@@ -227,7 +227,7 @@
                 </tr>
                 <tr>
                     <th>Laudo Paralisado:</th>
-                    <td>{{process.laudoParalisado}}</td>
+                    <td>{{#if process.laudoParalisado}}Sim{{else}}Não{{/if}}</td>
                 </tr>
                 <tr>
                     <th>Motivo Laudo Paralisado:</th>
@@ -239,7 +239,7 @@
                 </tr>
                 <tr>
                     <th>Esclarecimentos Não Iniciado:</th>
-                    <td>{{process.esclarecimentosNaoIniciado}}</td>
+                    <td>{{#if process.esclarecimentosNaoIniciado}}Sim{{else}}Não{{/if}}</td>
                 </tr>
                 <tr>
                     <th>Motivo Não Iniciado:</th>
@@ -251,7 +251,7 @@
                 </tr>
                 <tr>
                     <th>Esclarecimentos Iniciado:</th>
-                    <td>{{process.esclarecimentosIniciado}}</td>
+                    <td>{{#if process.esclarecimentosIniciado}}Sim{{else}}Não{{/if}}</td>
                 </tr>
                 <tr>
                     <th>Conclusão Esclarecimentos:</th>
@@ -263,7 +263,7 @@
                 </tr>
                 <tr>
                     <th>Esclarecimentos Paralisado:</th>
-                    <td>{{process.esclarecimentosParalisado}}</td>
+                    <td>{{#if process.esclarecimentosParalisado}}Sim{{else}}Não{{/if}}</td>
                 </tr>
                 <tr>
                     <th>Motivo Esclarecimentos Paralisado:</th>

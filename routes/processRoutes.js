@@ -52,10 +52,10 @@ router.get('/my-processes', authenticateToken, async (req, res) => {
 });
 
 hbs.registerHelper('formatDateForInput', function (date) {
-  if (!date) return '';
-  const d = new Date(date);
-  return d.toISOString().slice(0, 10); // Retorna YYYY-MM-DD
+  if (!date) return ''; // Retorna vazio se a data for nula ou indefinida
+  return moment(date).format('YYYY-MM-DD'); // Formata para YYYY-MM-DD
 });
+
 
 // Edit a process
 router.get('/edit/:id', authenticateToken, async (req, res) => {
@@ -64,7 +64,21 @@ router.get('/edit/:id', authenticateToken, async (req, res) => {
     if (!process || process.userId !== req.user.id) {
       return res.status(403).send('Forbidden');
     }
-    res.render('editProcess', { process: process.toJSON() }); // Passa todos os dados como JSON
+    res.render('editProcess', {
+      process: {
+        ...process.toJSON(),
+        dataNomeacao: moment(process.dataNomeacao).format('YYYY-MM-DD'),
+        dataJustificativa: moment(process.dataJustificativa).format('YYYY-MM-DD'),
+        dataMle: moment(process.dataMle).format('YYYY-MM-DD'),
+        dataVistoria: moment(process.dataVistoria).format('YYYY-MM-DD'),
+        dataNaoIniciado: moment(process.dataNaoIniciado).format('YYYY-MM-DD'),
+        dataConclusao: moment(process.dataConclusao).format('YYYY-MM-DD'),
+        dataParalisado: moment(process.dataParalisado).format('YYYY-MM-DD'),
+        dataNaoIniciadoEsclarecimentos: moment(process.dataNaoIniciadoEsclarecimentos).format('YYYY-MM-DD'),
+        dataConclusaoEsclarecimentos: moment(process.dataConclusaoEsclarecimentos).format('YYYY-MM-DD'),
+        dataParalisadoEsclarecimentos: moment(process.dataParalisadoEsclarecimentos).format('YYYY-MM-DD'),
+      },
+    });
   } catch (err) {
     console.error(err);
     res.status(500).send('Internal Server Error');
