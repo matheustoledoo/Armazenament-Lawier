@@ -127,10 +127,8 @@
                 <input type="text" id="nomeacao" name="nomeacao" value="{{process.nomeacao}}">
             </div>
 
-            <div class="form-group">
-                <label for="dataNomeacao">Data Nomeação:</label>
-                <input type="date" id="dataNomeacao" name="dataNomeacao" value="{{formatDateForInput process.dataNomeacao}}">
-            </div>
+           <label for="dataNomeacao">Data Nomeação:</label>
+<input type="date" id="dataNomeacao" name="dataNomeacao" value="{{formatDateForInput process.dataNomeacao}}">
 
             <div class="form-group">
                 <label for="fontePagadora">Fonte Pagadora:</label>
@@ -234,15 +232,16 @@
 <label for="mle">MLE:</label>
 <input type="text" id="mle" name="mle" value="{{process.mle}}">
 
-<label for="dataMle">Data:</label>
-<input type="date" id="dataMle" name="dataMle" value="{{formatDate process.dataMle}}">
+<label for="dataMle">Data MLE:</label>
+<input type="date" id="dataMle" name="dataMle" value="{{formatDateForInput process.dataMle}}">
+
 
 
 <label for="agendamentoVistoria">Agendamento:</label>
 <input type="text" id="agendamentoVistoria" name="agendamentoVistoria" value="{{process.agendamentoVistoria}}">
 
-<label for="dataVistoria">Data:</label>
-<input type="date" id="dataVistoria" name="dataVistoria" value="{{formatDate process.dataVistoria}}">
+<label for="dataVistoria">Data Vistoria:</label>
+<input type="date" id="dataVistoria" name="dataVistoria" value="{{formatDateForInput process.dataVistoria}}">
 
 <label for="laudoNaoIniciado">Laudo Não Iniciado:</label>
 <select id="laudoNaoIniciado" name="laudoNaoIniciado">
@@ -253,8 +252,9 @@
 <label for="motivoNaoIniciado">Motivo:</label>
 <input type="text" id="motivoNaoIniciado" name="motivoNaoIniciado" value="{{process.motivoNaoIniciado}}">
 
-<label for="dataNaoIniciado">Data:</label>
-<input type="date" id="dataNaoIniciado" name="dataNaoIniciado" value="{{formatDate process.dataNaoIniciado}}">
+<label for="dataNaoIniciado">Data Não Iniciado:</label>
+<input type="date" id="dataNaoIniciado" name="dataNaoIniciado" value="{{formatDateForInput process.dataNaoIniciado}}">
+
 
 <label for="laudoIniciado">Laudo Iniciado:</label>
 <select id="laudoIniciado" name="laudoIniciado">
@@ -266,7 +266,8 @@
 <input type="text" id="conclusaoLaudo" name="conclusaoLaudo" value="{{process.conclusaoLaudo}}">
 
 <label for="dataConclusao">Data Conclusão:</label>
-<input type="date" id="dataConclusao" name="dataConclusao" value="{{formatDate process.dataConclusao}}">
+<input type="date" id="dataConclusao" name="dataConclusao" value="{{formatDateForInput process.dataConclusao}}">
+
 
 <label for="laudoParalisado">Laudo Paralisado:</label>
 <select id="laudoParalisado" name="laudoParalisado">
@@ -278,7 +279,8 @@
 <input type="text" id="motivoParalisado" name="motivoParalisado" value="{{process.motivoParalisado}}">
 
 <label for="dataParalisado">Data Paralisado:</label>
-<input type="date" id="dataParalisado" name="dataParalisado" value="{{formatDate process.dataParalisado}}">
+<input type="date" id="dataParalisado" name="dataParalisado" value="{{formatDateForInput process.dataParalisado}}">
+
 
 
 <label for="esclarecimentosNaoIniciado">Esclarecimentos Não Iniciado:</label>
@@ -290,8 +292,10 @@
 <label for="motivoNaoIniciadoEsclarecimentos">Motivo:</label>
 <input type="text" id="motivoNaoIniciadoEsclarecimentos" name="motivoNaoIniciadoEsclarecimentos" value="{{process.motivoNaoIniciadoEsclarecimentos}}">
 
-<label for="dataNaoIniciadoEsclarecimentos">Data:</label>
-<input type="date" id="dataNaoIniciadoEsclarecimentos" name="dataNaoIniciadoEsclarecimentos" value="{{formatDate process.dataNaoIniciadoEsclarecimentos}}">
+<label for="dataNaoIniciadoEsclarecimentos">Data Não Iniciado Esclarecimentos:</label>
+<input type="date" id="dataNaoIniciadoEsclarecimentos" name="dataNaoIniciadoEsclarecimentos" value="{{formatDateForInput process.dataNaoIniciadoEsclarecimentos}}">
+
+
 
 <label for="esclarecimentosIniciado">Esclarecimentos Iniciado:</label>
 <select id="esclarecimentosIniciado" name="esclarecimentosIniciado">
@@ -302,8 +306,9 @@
 <label for="conclusaoEsclarecimentos">Conclusão dos Esclarecimentos:</label>
 <input type="text" id="conclusaoEsclarecimentos" name="conclusaoEsclarecimentos" value="{{process.conclusaoEsclarecimentos}}">
 
-<label for="dataConclusaoEsclarecimentos">Data Conclusão:</label>
-<input type="date" id="dataConclusaoEsclarecimentos" name="dataConclusaoEsclarecimentos" value="{{formatDate process.dataConclusaoEsclarecimentos}}">
+<label for="dataConclusaoEsclarecimentos">Data Conclusão Esclarecimentos:</label>
+<input type="date" id="dataConclusaoEsclarecimentos" name="dataConclusaoEsclarecimentos" value="{{formatDateForInput process.dataConclusaoEsclarecimentos}}">
+
 
 <label for="esclarecimentosParalisado">Esclarecimentos Paralisado:</label>
 <select id="esclarecimentosParalisado" name="esclarecimentosParalisado">
@@ -314,8 +319,8 @@
 <label for="motivoParalisadoEsclarecimentos">Motivo Paralisado:</label>
 <input type="text" id="motivoParalisadoEsclarecimentos" name="motivoParalisadoEsclarecimentos" value="{{process.motivoParalisadoEsclarecimentos}}">
 
-<label for="dataParalisadoEsclarecimentos">Data Paralisado:</label>
-<input type="date" id="dataParalisadoEsclarecimentos" name="dataParalisadoEsclarecimentos" value="{{formatDate process.dataParalisadoEsclarecimentos}}">
+<label for="dataParalisadoEsclarecimentos">Data Paralisado Esclarecimentos:</label>
+<input type="date" id="dataParalisadoEsclarecimentos" name="dataParalisadoEsclarecimentos" value="{{formatDateForInput process.dataParalisadoEsclarecimentos}}">
 </div>
 
 

@@ -52,20 +52,22 @@ router.get('/my-processes', authenticateToken, async (req, res) => {
 });
 
 hbs.registerHelper('formatDateForInput', function (date) {
-  if (!date) return ''; // Retorna vazio se a data for nula ou indefinida
-  return moment(date).format('YYYY-MM-DD'); // Formata para YYYY-MM-DD
+  if (!date) return ''; // Se a data for nula ou indefinida, retorna string vazia
+  return moment(date).format('YYYY-MM-DD'); // Formata no formato aceito por inputs do tipo "date"
 });
+
 
 
 // Edit a process
 router.get('/edit/:id', authenticateToken, async (req, res) => {
   try {
     const process = await Process.findByPk(req.params.id);
+
     if (!process || process.userId !== req.user.id) {
       return res.status(403).send('Forbidden');
     }
 
-    // Formata as datas no formato 'YYYY-MM-DD' ou retorna vazio
+    // Formata as datas no formato 'YYYY-MM-DD' ou retorna vazio para o Handlebars
     const formattedProcess = {
       ...process.toJSON(),
       dataNomeacao: process.dataNomeacao ? moment(process.dataNomeacao).format('YYYY-MM-DD') : '',
@@ -92,6 +94,7 @@ router.get('/edit/:id', authenticateToken, async (req, res) => {
     res.status(500).send('Erro interno ao carregar o processo.');
   }
 });
+
 
 
 
