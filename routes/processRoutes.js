@@ -65,7 +65,7 @@ router.get('/edit/:id', authenticateToken, async (req, res) => {
       return res.status(403).send('Forbidden');
     }
 
-    // Verifique e formate todas as datas no formato esperado pelo input type="date"
+    // Formata as datas no formato 'YYYY-MM-DD' ou retorna vazio
     const formattedProcess = {
       ...process.toJSON(),
       dataNomeacao: process.dataNomeacao ? moment(process.dataNomeacao).format('YYYY-MM-DD') : '',
@@ -88,22 +88,24 @@ router.get('/edit/:id', authenticateToken, async (req, res) => {
 
     res.render('editProcess', { process: formattedProcess });
   } catch (err) {
-    console.error(err);
-    res.status(500).send('Internal Server Error');
+    console.error('Erro ao carregar o processo para edição:', err);
+    res.status(500).send('Erro interno ao carregar o processo.');
   }
 });
 
 
 
+
 router.post('/edit/:id', authenticateToken, async (req, res) => {
   try {
-      const process = await Process.findByPk(req.params.id);
+    const process = await Process.findByPk(req.params.id);
 
-      if (!process || process.userId !== req.user.id) {
-          return res.status(403).send('Forbidden');
-      }
+    if (!process || process.userId !== req.user.id) {
+      return res.status(403).send('Forbidden');
+    }
 
-      console.log('Dados recebidos do formulário:', req.body);
+    // Função para lidar com datas enviadas do formulário
+    const formatDate = (date) => (date ? new Date(date) : null);
 
       // Função para converter arrays ou valores inválidos em strings
       const sanitizeString = (value) => {
@@ -113,11 +115,6 @@ router.post('/edit/:id', authenticateToken, async (req, res) => {
           return typeof value === 'string' ? value : String(value || '');
       };
 
-      // Função para lidar com campos de data
-      const formatDate = (date) => {
-          if (!date || date === 'Invalid date') return null;
-          return new Date(date);
-      };
 
       // Sanitização de todos os campos
       const sanitizedData = {
