@@ -35,9 +35,6 @@ const Process = sequelize.define('Process', {
   },
   emailVara: {
     type: DataTypes.STRING,
-    validate: {
-      isEmail: true,
-    },
   },
   telefoneVara: {
     type: DataTypes.STRING,
@@ -57,9 +54,6 @@ const Process = sequelize.define('Process', {
   },
   emailRequerente: {
     type: DataTypes.STRING,
-    validate: {
-      isEmail: true,
-    },
   },
   requerido: {
     type: DataTypes.STRING,
@@ -75,9 +69,6 @@ const Process = sequelize.define('Process', {
   },
   emailRequerido: {
     type: DataTypes.STRING,
-    validate: {
-      isEmail: true,
-    },
   },
   perito: {
     type: DataTypes.STRING,
@@ -89,9 +80,6 @@ const Process = sequelize.define('Process', {
   },
   emailPerito: {
     type: DataTypes.STRING,
-    validate: {
-      isEmail: true,
-    },
   },
   assistenteTecnico: {
     type: DataTypes.STRING,
@@ -103,9 +91,6 @@ const Process = sequelize.define('Process', {
   },
   emailAssistenteTecnico: {
     type: DataTypes.STRING,
-    validate: {
-      isEmail: true,
-    },
   },
   nomeacao: {
     type: DataTypes.STRING,
