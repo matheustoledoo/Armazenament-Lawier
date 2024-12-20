@@ -15,19 +15,19 @@ const Process = sequelize.define('Process', {
   },
   acao: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   forum: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   vara: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   juiz: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   escrevente: {
     type: DataTypes.STRING,
@@ -35,6 +35,7 @@ const Process = sequelize.define('Process', {
   },
   emailVara: {
     type: DataTypes.STRING,
+    allowNull: true,
   },
   telefoneVara: {
     type: DataTypes.STRING,
@@ -42,7 +43,7 @@ const Process = sequelize.define('Process', {
   },
   requerente: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   advogadoRequerente: {
     type: DataTypes.STRING,
@@ -54,10 +55,11 @@ const Process = sequelize.define('Process', {
   },
   emailRequerente: {
     type: DataTypes.STRING,
+    allowNull: true,
   },
   requerido: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   advogadoRequerido: {
     type: DataTypes.STRING,
@@ -69,6 +71,7 @@ const Process = sequelize.define('Process', {
   },
   emailRequerido: {
     type: DataTypes.STRING,
+    allowNull: true,
   },
   perito: {
     type: DataTypes.STRING,
@@ -80,6 +83,7 @@ const Process = sequelize.define('Process', {
   },
   emailPerito: {
     type: DataTypes.STRING,
+    allowNull: true,
   },
   assistenteTecnico: {
     type: DataTypes.STRING,
@@ -91,6 +95,7 @@ const Process = sequelize.define('Process', {
   },
   emailAssistenteTecnico: {
     type: DataTypes.STRING,
+    allowNull: true,
   },
   nomeacao: {
     type: DataTypes.STRING,
