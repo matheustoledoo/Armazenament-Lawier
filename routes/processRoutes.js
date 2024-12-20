@@ -28,23 +28,7 @@ router.get('/create', authenticateToken, (req, res) => {
 router.post('/create', authenticateToken, async (req, res) => {
   try {
     const newProcess = await Process.create({
-      ...req.body,dataNomeacao: process.dataNomeacao ? moment(process.dataNomeacao).format('YYYY-MM-DD') : '',
-      dataJustificativa: process.dataJustificativa ? moment(process.dataJustificativa).format('YYYY-MM-DD') : '',
-      dataMle: process.dataMle ? moment(process.dataMle).format('YYYY-MM-DD') : '',
-      dataVistoria: process.dataVistoria ? moment(process.dataVistoria).format('YYYY-MM-DD') : '',
-      dataNaoIniciado: process.dataNaoIniciado ? moment(process.dataNaoIniciado).format('YYYY-MM-DD') : '',
-      dataConclusao: process.dataConclusao ? moment(process.dataConclusao).format('YYYY-MM-DD') : '',
-      dataParalisado: process.dataParalisado ? moment(process.dataParalisado).format('YYYY-MM-DD') : '',
-      dataNaoIniciadoEsclarecimentos: process.dataNaoIniciadoEsclarecimentos
-        ? moment(process.dataNaoIniciadoEsclarecimentos).format('YYYY-MM-DD')
-        : '',
-      dataConclusaoEsclarecimentos: process.dataConclusaoEsclarecimentos
-        ? moment(process.dataConclusaoEsclarecimentos).format('YYYY-MM-DD')
-        : '',
-      dataParalisadoEsclarecimentos: process.dataParalisadoEsclarecimentos
-        ? moment(process.dataParalisadoEsclarecimentos).format('YYYY-MM-DD')
-        : '',
-
+      ...req.body,
       userId: req.user.id, // Associate process with the logged-in user
     });
     res.redirect(`/`);
