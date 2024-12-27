@@ -32,15 +32,11 @@
             </div>
 
             <div class="form-group">
-                <label for="juiz">Juiz:</label>
-                <input type="text" id="juiz" name="juiz" value="{{process.juiz}}" >
+                <label for="ripa">Ripa:</label>
+                <input type="text" id="ripa" name="ripa" value="{{process.ripa}}" >
             </div>
 
             {{!-- Dados adicionais --}}
-            <div class="form-group">
-                <label for="escrevente">Escrevente:</label>
-                <input type="text" id="escrevente" name="escrevente" value="{{process.escrevente}}">
-            </div>
 
             <div class="form-group">
                 <label for="emailVara">Email da Vara:</label>
@@ -130,110 +126,18 @@
            <label for="dataNomeacao">Data Nomeação:</label>
 <input type="date" id="dataNomeacao" name="dataNomeacao" value="{{formatDateForInput process.dataNomeacao}}">
 
-            <div class="form-group">
-                <label for="fontePagadora">Fonte Pagadora:</label>
-                <select id="fontePagadora" name="fontePagadora">
-                    <option value="PGE" {{#if (eq process.fontePagadora 'PGE')}}selected{{/if}}>PGE</option>
-                    <option value="Particular" {{#if (eq process.fontePagadora 'Particular')}}selected{{/if}}>Particular</option>
-                </select>
-            </div>
-<div class="form-group">
-            <label for="honorariosProvisorios">Provisórios:</label>
-<select id="honorariosProvisorios" name="honorariosProvisorios">
-    <option value="true" {{#if (eq process.honorariosProvisorios true)}}selected{{/if}}>Sim</option>
-    <option value="false" {{#if (eq process.honorariosProvisorios false)}}selected{{/if}}>Não</option>
-</select>
 
-<label for="valorProvisorios">Valor Provisórios:</label>
-<input type="number" id="valorProvisorios" name="valorProvisorios" step="0.01" value="{{process.valorProvisorios}}">
+<label for="valortotal">Valor Total:</label>
+<input type="number" id="valortotal" name="valortotal" step="0.01" value="{{process.valortotal}}">
 
-<label for="depositadoProvisorios">Depositado Provisórios:</label>
-<select id="depositadoProvisorios" name="depositadoProvisorios">
-    <option value="true" {{#if (eq process.depositadoProvisorios true)}}selected{{/if}}>Sim</option>
-    <option value="false" {{#if (eq process.depositadoProvisorios false)}}selected{{/if}}>Não</option>
-</select>
+<label for="medidoateomomento">Medido Até o Momento:</label>
+<input type="number" id="medidoateomomento" name="medidoateomomento" step="0.01" value="{{process.medidoateomomento}}">
 
-<label for="folhaProvisorios">Folha Provisórios:</label>
-<input type="text" id="folhaProvisorios" name="folhaProvisorios" value="{{process.folhaProvisorios}}">
+<label for="saldoamedir">Saldo a Medir:</label>
+<input type="number" id="saldoamedir" name="saldoamedir" step="0.01" value="{{process.saldoamedir}}">
 
-<label for="honorariosDefinitivos">Definitivos:</label>
-<select id="honorariosDefinitivos" name="honorariosDefinitivos">
-    <option value="true" {{#if (eq process.honorariosDefinitivos true)}}selected{{/if}}>Sim</option>
-    <option value="false" {{#if (eq process.honorariosDefinitivos false)}}selected{{/if}}>Não</option>
-</select>
-
-<label for="valorDefinitivos">Valor Definitivos:</label>
-<input type="number" id="valorDefinitivos" name="valorDefinitivos" step="0.01" value="{{process.valorDefinitivos}}">
-
-<label for="depositadoDefinitivos">Depositado Definitivos:</label>
-<select id="depositadoDefinitivos" name="depositadoDefinitivos">
-    <option value="true" {{#if (eq process.depositadoDefinitivos true)}}selected{{/if}}>Sim</option>
-    <option value="false" {{#if (eq process.depositadoDefinitivos false)}}selected{{/if}}>Não</option>
-</select>
-
-<label for="folhaDefinitivos">Folha Definitivos:</label>
-<input type="text" id="folhaDefinitivos" name="folhaDefinitivos" value="{{process.folhaDefinitivos}}">
-
-<label for="estimativaHonorarios">Estimativa de Honorários:</label>
-<select id="estimativaHonorarios" name="estimativaHonorarios">
-    <option value="true" {{#if (eq process.estimativaHonorarios true)}}selected{{/if}}>Sim</option>
-    <option value="false" {{#if (eq process.estimativaHonorarios false)}}selected{{/if}}>Não</option>
-</select>
-
-<label for="valorEstimativaHonorarios">Valor Estimativa de Honorários:</label>
-<input type="number" id="valorEstimativaHonorarios" name="valorEstimativaHonorarios" step="0.01" value="{{process.valorEstimativaHonorarios}}">
-
-<label for="deferidoJuiz">Deferido Juiz:</label>
-<select id="deferidoJuiz" name="deferidoJuiz">
-    <option value="true" {{#if (eq process.deferidoJuiz true)}}selected{{/if}}>Sim</option>
-    <option value="false" {{#if (eq process.deferidoJuiz false)}}selected{{/if}}>Não</option>
-</select>
-
-<label for="contestacaoParte">Contestação da Parte:</label>
-<input type="text" id="contestacaoParte" name="contestacaoParte" value="{{process.contestacaoParte}}">
-
-
-<label for="folhaEstimativaHonorario">Folha Estimativa Honorário:</label>
-<input type="text" id="folhaEstimativaHonorario" name="folhaEstimativaHonorario" value="{{process.folhaEstimativaHonorario}}">
-
-<label for="estimativaHonorarios">Estimativa de Honorários:</label>
-<select id="estimativaHonorarios" name="estimativaHonorarios">
-    <option value="true" {{#if (eq process.estimativaHonorarios true)}}selected{{/if}}>Sim</option>
-    <option value="false" {{#if (eq process.estimativaHonorarios false)}}selected{{/if}}>Não</option>
-</select>
-
-<label for="valorEstimativaHonorarios">Valor Estimativa de Honorários:</label>
-<input type="number" id="valorEstimativaHonorarios" name="valorEstimativaHonorarios" step="0.01" value="{{process.valorEstimativaHonorarios}}">
-
-<label for="deferidoJuiz">Deferido Juiz:</label>
-<select id="deferidoJuiz" name="deferidoJuiz">
-    <option value="true" {{#if (eq process.deferidoJuiz true)}}selected{{/if}}>Sim</option>
-    <option value="false" {{#if (eq process.deferidoJuiz false)}}selected{{/if}}>Não</option>
-</select>
-
-<label for="contestacaoParte">Contestação da Parte:</label>
-<input type="text" id="contestacaoParte" name="contestacaoParte" value="{{process.contestacaoParte}}">
-
-<label for="folhaEstimativaHonorario">Folha Estimativa Honorário:</label>
-<input type="text" id="folhaEstimativaHonorario" name="folhaEstimativaHonorario" value="{{process.folhaEstimativaHonorario}}">
-
-<label for="peticaoRecebimento">Petição para Recebimento:</label>
-<select id="peticaoRecebimento" name="peticaoRecebimento">
-    <option value="true" {{#if (eq process.peticaoRecebimento true)}}selected{{/if}}>Sim</option>
-    <option value="false" {{#if (eq process.peticaoRecebimento false)}}selected{{/if}}>Não</option>
-</select>
-
-<label for="valorPeticaoRecebimento">Valor Petição para Recebimento:</label>
-<input type="number" id="valorPeticaoRecebimento" name="valorPeticaoRecebimento" step="0.01" value="{{process.valorPeticaoRecebimento}}">
-
-<label for="folhaPeticaoRecebimento">Folha Petição para Recebimento:</label>
-<input type="text" id="folhaPeticaoRecebimento" name="folhaPeticaoRecebimento" value="{{process.folhaPeticaoRecebimento}}">
-
-<label for="mle">MLE:</label>
-<input type="text" id="mle" name="mle" value="{{process.mle}}">
-
-<label for="dataMle">Data MLE:</label>
-<input type="date" id="dataMle" name="dataMle" value="{{formatDateForInput process.dataMle}}">
+<label for="medicaoatual">Medição Atual:</label>
+<input type="number" id="medicaoatual" name="medicaoatual" step="0.01" value="{{process.medicaoatual}}">
 
 
 
@@ -358,7 +262,7 @@
         }
 
         .btn-primary {
-            background-color: #007bff;
+            background-color: #ff7a0c;
             color: #fff;
         }
 

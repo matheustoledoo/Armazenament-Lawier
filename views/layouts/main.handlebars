@@ -10,14 +10,14 @@
   <header class="header">
     <nav class="navbar">
       <a class="logo" href="/">
-      <div class="logo">Gerenciador de Processos</div>
+      <div class="logo">Gerenciador de Assistencia Tecnica</div>
       </a>
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
         {{#if isAuthenticated}}
         <li><a href="/process/create">Criar Processo</a></li>
         <li>
-               <li><a href="/process/my-processes">Meus Processos</a></li>
+               <li><a href="/process/my-processes">Minhas Pericias</a></li>
           <form action="/auth/logout" method="POST" style="display:inline;">
             <button type="submit" class="btn-logout">Logout</button>
           </form>
@@ -34,7 +34,7 @@
     {{{body}}}
   </main>
   <footer class="footer">
-    <p>&copy; 2024 Justice Process Manager</p>
+    <p>&copy; 2024 - Gerenciador de Pericias</p>
   </footer>
 </body>
 </html>

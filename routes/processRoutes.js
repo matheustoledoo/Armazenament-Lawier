@@ -19,7 +19,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-
 // Create a new process
 router.get('/create', authenticateToken, (req, res) => {
   res.render('createProcess');
@@ -27,17 +26,84 @@ router.get('/create', authenticateToken, (req, res) => {
 
 router.post('/create', authenticateToken, async (req, res) => {
   try {
-    const newProcess = await Process.create({
-      ...req.body,
-      userId: req.user.id, // Associate process with the logged-in user
-    });
-    res.redirect(`/`);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('Internal Server Error');
+    // Função para tratar campos numéricos
+    const parseFloatOrNull = (value) => {
+      return value === '' || value === undefined || value === null ? null : parseFloat(value);
+    };
+
+    // Função para lidar com campos booleanos
+    const parseBooleanOrNull = (value) => {
+      return value === '' || value === undefined || value === null ? null : value === 'true';
+    };
+
+    // Função para lidar com datas
+    const parseDateOrNull = (value) => {
+      return value === '' || value === undefined || value === null ? null : new Date(value);
+    };
+
+    // Sanitização e conversão dos dados recebidos
+    const sanitizedData = {
+      numeroProcesso: req.body.numeroProcesso || null,
+      acao: req.body.acao || null,
+      forum: req.body.forum || null,
+      vara: req.body.vara || null,
+      ripa: req.body.ripa || null,
+      emailVara: req.body.emailVara || null,
+      telefoneVara: req.body.telefoneVara || null,
+      requerente: req.body.requerente || null,
+      advogadoRequerente: req.body.advogadoRequerente || null,
+      telefoneRequerente: req.body.telefoneRequerente || null,
+      emailRequerente: req.body.emailRequerente || null,
+      requerido: req.body.requerido || null,
+      advogadoRequerido: req.body.advogadoRequerido || null,
+      telefoneRequerido: req.body.telefoneRequerido || null,
+      emailRequerido: req.body.emailRequerido || null,
+      perito: req.body.perito || null,
+      telefonePerito: req.body.telefonePerito || null,
+      emailPerito: req.body.emailPerito || null,
+      assistenteTecnico: req.body.assistenteTecnico || null,
+      telefoneAssistenteTecnico: req.body.telefoneAssistenteTecnico || null,
+      emailAssistenteTecnico: req.body.emailAssistenteTecnico || null,
+      nomeacao: req.body.nomeacao || null,
+      dataNomeacao: parseDateOrNull(req.body.dataNomeacao),
+      fontePagadora: req.body.fontePagadora || null,
+      
+      valortotal: req.body.valortotal || null,
+      medidoateomomento: req.body.medidoateomomento || null,
+      saldoamedir: req.body.saldoamedir || null,
+      medicaoatual: req.body.medicaoatual || null,
+      
+      agendamentoVistoria: req.body.agendamentoVistoria || null,
+      dataVistoria: parseDateOrNull(req.body.dataVistoria),
+      laudoNaoIniciado: parseBooleanOrNull(req.body.laudoNaoIniciado),
+      motivoNaoIniciado: req.body.motivoNaoIniciado || null,
+      dataNaoIniciado: parseDateOrNull(req.body.dataNaoIniciado),
+      laudoIniciado: parseBooleanOrNull(req.body.laudoIniciado),
+      conclusaoLaudo: req.body.conclusaoLaudo || null,
+      dataConclusao: parseDateOrNull(req.body.dataConclusao),
+      laudoParalisado: parseBooleanOrNull(req.body.laudoParalisado),
+      motivoParalisado: req.body.motivoParalisado || null,
+      dataParalisado: parseDateOrNull(req.body.dataParalisado),
+      esclarecimentosNaoIniciado: parseBooleanOrNull(req.body.esclarecimentosNaoIniciado),
+      motivoNaoIniciadoEsclarecimentos: req.body.motivoNaoIniciadoEsclarecimentos || null,
+      dataNaoIniciadoEsclarecimentos: parseDateOrNull(req.body.dataNaoIniciadoEsclarecimentos),
+      esclarecimentosIniciado: parseBooleanOrNull(req.body.esclarecimentosIniciado),
+      conclusaoEsclarecimentos: req.body.conclusaoEsclarecimentos || null,
+      dataConclusaoEsclarecimentos: parseDateOrNull(req.body.dataConclusaoEsclarecimentos),
+      esclarecimentosParalisado: parseBooleanOrNull(req.body.esclarecimentosParalisado),
+      motivoParalisadoEsclarecimentos: req.body.motivoParalisadoEsclarecimentos || null,
+      dataParalisadoEsclarecimentos: parseDateOrNull(req.body.dataParalisadoEsclarecimentos),
+      userId: req.user.id,
+    };
+
+    // Criação do processo
+    await Process.create(sanitizedData);
+    res.redirect('/');
+  } catch (error) {
+    console.error('Erro ao criar o processo:', error);
+    res.status(500).send('Erro ao criar o processo.');
   }
 });
-
 // Get processes created by logged-in user ("My Processes")
 router.get('/my-processes', authenticateToken, async (req, res) => {
   try {
@@ -71,8 +137,6 @@ router.get('/edit/:id', authenticateToken, async (req, res) => {
     const formattedProcess = {
       ...process.toJSON(),
       dataNomeacao: process.dataNomeacao ? moment(process.dataNomeacao).format('YYYY-MM-DD') : '',
-      dataJustificativa: process.dataJustificativa ? moment(process.dataJustificativa).format('YYYY-MM-DD') : '',
-      dataMle: process.dataMle ? moment(process.dataMle).format('YYYY-MM-DD') : '',
       dataVistoria: process.dataVistoria ? moment(process.dataVistoria).format('YYYY-MM-DD') : '',
       dataNaoIniciado: process.dataNaoIniciado ? moment(process.dataNaoIniciado).format('YYYY-MM-DD') : '',
       dataConclusao: process.dataConclusao ? moment(process.dataConclusao).format('YYYY-MM-DD') : '',
@@ -125,8 +189,7 @@ router.post('/edit/:id', authenticateToken, async (req, res) => {
           acao: sanitizeString(req.body.acao),
           forum: sanitizeString(req.body.forum),
           vara: sanitizeString(req.body.vara),
-          juiz: sanitizeString(req.body.juiz),
-          escrevente: sanitizeString(req.body.escrevente),
+          ripa: sanitizeString(req.body.ripa),
           emailVara: sanitizeString(req.body.emailVara),
           telefoneVara: sanitizeString(req.body.telefoneVara),
           requerente: sanitizeString(req.body.requerente),
@@ -145,27 +208,14 @@ router.post('/edit/:id', authenticateToken, async (req, res) => {
           emailAssistenteTecnico: sanitizeString(req.body.emailAssistenteTecnico),
           nomeacao: sanitizeString(req.body.nomeacao),
           dataNomeacao: formatDate(req.body.dataNomeacao),
-          fontePagadora: sanitizeString(req.body.fontePagadora),
-          honorariosProvisorios: req.body.honorariosProvisorios === 'true',
-          valorProvisorios: parseFloat(req.body.valorProvisorios) || 0,
-          depositadoProvisorios: req.body.depositadoProvisorios === 'true',
-          folhaProvisorios: sanitizeString(req.body.folhaProvisorios),
-          honorariosDefinitivos: req.body.honorariosDefinitivos === 'true',
-          valorDefinitivos: parseFloat(req.body.valorDefinitivos) || 0,
-          depositadoDefinitivos: req.body.depositadoDefinitivos === 'true',
-          folhaDefinitivos: sanitizeString(req.body.folhaDefinitivos),
-          estimativaHonorarios: req.body.estimativaHonorarios === 'true',
-          valorEstimativaHonorarios: parseFloat(req.body.valorEstimativaHonorarios) || 0,
-          deferidoJuiz: req.body.deferidoJuiz === 'true',
-          contestacaoParte: sanitizeString(req.body.contestacaoParte),
-          folhaEstimativaHonorario: sanitizeString(req.body.folhaEstimativaHonorario),
-          justificativaHonorarios: sanitizeString(req.body.justificativaHonorarios),
-          dataJustificativa: formatDate(req.body.dataJustificativa),
-          peticaoRecebimento: req.body.peticaoRecebimento === 'true',
-          valorPeticaoRecebimento: parseFloat(req.body.valorPeticaoRecebimento) || 0,
-          folhaPeticaoRecebimento: sanitizeString(req.body.folhaPeticaoRecebimento),
-          mle: sanitizeString(req.body.mle),
-          dataMle: formatDate(req.body.dataMle),
+          
+          valortotal: parseFloat(req.body.valortotal) || 0,
+          medidoateomomento: parseFloat(req.body.medidoateomomento) || 0,
+          saldoamedir: parseFloat(req.body.saldoamedir) || 0,
+          medicaoatual: parseFloat(req.body.medicaoatual) || 0,
+
+          
+          
           agendamentoVistoria: sanitizeString(req.body.agendamentoVistoria),
           dataVistoria: formatDate(req.body.dataVistoria),
           laudoNaoIniciado: req.body.laudoNaoIniciado === 'true',
@@ -207,7 +257,6 @@ router.get('/search', async (req, res) => {
           { numeroProcesso: { [Op.like]: `%${query}%` } },
           { acao: { [Op.like]: `%${query}%` } },
           { forum: { [Op.like]: `%${query}%` } },
-          { juiz: { [Op.like]: `%${query}%` } }
         ]
       }
     });
@@ -250,8 +299,6 @@ router.get('/:id', async (req, res) => {
     const formattedProcess = {
       ...process.toJSON(),
       dataNomeacao: moment(process.dataNomeacao).format('DD/MM/YYYY'),
-      dataJustificativa: moment(process.dataJustificativa).format('DD/MM/YYYY'),
-      dataMle: moment(process.dataMle).format('DD/MM/YYYY'),
       dataVistoria: moment(process.dataVistoria).format('DD/MM/YYYY'),
       dataNaoIniciado: moment(process.dataNaoIniciado).format('DD/MM/YYYY'),
       dataConclusao: moment(process.dataConclusao).format('DD/MM/YYYY'),

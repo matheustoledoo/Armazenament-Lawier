@@ -25,13 +25,9 @@ const Process = sequelize.define('Process', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  juiz: {
+  ripa: {
     type: DataTypes.STRING,
     allowNull: false,
-  },
-  escrevente: {
-    type: DataTypes.STRING,
-    allowNull: true,
   },
   emailVara: {
     type: DataTypes.STRING,
@@ -115,88 +111,20 @@ const Process = sequelize.define('Process', {
     type: DataTypes.DATE,
     allowNull: true,
   },
-  fontePagadora: {
-    type: DataTypes.ENUM('PGE', 'Particular'),
-    allowNull: false,
-  },
-  honorariosProvisorios: {
-    type: DataTypes.BOOLEAN,
-    allowNull: true,
-  },
-  valorProvisorios: {
+  valortotal: {
     type: DataTypes.FLOAT,
     allowNull: true,
   },
-  depositadoProvisorios: {
-    type: DataTypes.BOOLEAN,
-    allowNull: true,
-  },
-  folhaProvisorios: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
-  honorariosDefinitivos: {
-    type: DataTypes.BOOLEAN,
-    allowNull: true,
-  },
-  valorDefinitivos: {
+  medidoateomomento: {
     type: DataTypes.FLOAT,
     allowNull: true,
   },
-  depositadoDefinitivos: {
-    type: DataTypes.BOOLEAN,
-    allowNull: true,
-  },
-  folhaDefinitivos: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
-  estimativaHonorarios: {
-    type: DataTypes.BOOLEAN,
-    allowNull: true,
-  },
-  valorEstimativaHonorarios: {
+  saldoamedir: {
     type: DataTypes.FLOAT,
     allowNull: true,
   },
-  deferidoJuiz: {
-    type: DataTypes.BOOLEAN,
-    allowNull: true,
-  },
-  contestacaoParte: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
-  folhaEstimativaHonorario: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
-  justificativaHonorarios: {
-    type: DataTypes.TEXT,
-    allowNull: true,
-  },
-  dataJustificativa: {
-    type: DataTypes.DATE,
-    allowNull: true,
-  },
-  peticaoRecebimento: {
-    type: DataTypes.BOOLEAN,
-    allowNull: true,
-  },
-  valorPeticaoRecebimento: {
+  medicaoatual: {
     type: DataTypes.FLOAT,
-    allowNull: true,
-  },
-  folhaPeticaoRecebimento: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
-  mle: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
-  dataMle: {
-    type: DataTypes.DATE,
     allowNull: true,
   },
   agendamentoVistoria: {

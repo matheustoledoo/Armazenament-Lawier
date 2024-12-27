@@ -16,7 +16,7 @@
         <input
             type="text"
             name="query"
-            placeholder="Procure pelo número do processo, ação, fórum ou juiz"
+            placeholder="Procure pelo número do processo, ação ou fórum"
             class="search-input"
             required
         />
@@ -31,7 +31,6 @@
             <p><strong>Ação:</strong> {{this.acao}}</p>
             <p><strong>Fórum:</strong> {{this.forum}}</p>
             <p><strong>Vara:</strong> {{this.vara}}</p>
-            <p><strong>Juiz:</strong> {{this.juiz}}</p>
             <a href="/process/{{this.id}}" class="details-button">Mostrar Detalhes</a>
           </div>
         {{/each}}
@@ -63,7 +62,7 @@
     .process-card h2 {
       margin-bottom: 10px;
       font-size: 18px;
-      color: #333;
+      color: ##ff7a0c;
     }
 
     .process-card p {

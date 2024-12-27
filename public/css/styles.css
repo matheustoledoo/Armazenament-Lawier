@@ -17,7 +17,7 @@ body, h1, p, ul, li, a, button, form {
   
   /* Header Styling */
   .header {
-    background-color: #007bff;
+    background-color: #ff7a0c;
     padding: 10px 20px;
   }
   
@@ -50,7 +50,7 @@ body, h1, p, ul, li, a, button, form {
   }
   
   .nav-links li a:hover {
-    background: #0056b3;
+    background: #ff7a0c;
   }
   
   /* Logout Button */
@@ -82,7 +82,7 @@ body, h1, p, ul, li, a, button, form {
   h1 {
     text-align: center;
     margin-bottom: 20px;
-    color: #007bff;
+    color: #ff7a0c;
   }
   
   /* Cards Styling */
@@ -97,7 +97,7 @@ body, h1, p, ul, li, a, button, form {
   
   .card h3 {
     margin-bottom: 10px;
-    color: #007bff;
+    color: #ff7a0c;
   }
   
   .card p {
@@ -146,7 +146,7 @@ body, h1, p, ul, li, a, button, form {
     text-align: center;
     font-size: 2em;
     margin-bottom: 20px;
-    color: #007bff;
+    color: #ff7a0c;
     font-weight: bold;
 }
 
@@ -197,7 +197,7 @@ body, h1, p, ul, li, a, button, form {
     text-align: center;
     font-size: 2em;
     margin-bottom: 20px;
-    color: #007bff;
+    color: #ff7a0c;
     font-weight: bold;
 }
 
@@ -249,15 +249,15 @@ body, h1, p, ul, li, a, button, form {
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-    border-color: #007bff;
+    border-color: #ff7a0c;
     outline: none;
-    box-shadow: 0 0 4px rgba(0, 123, 255, 0.25);
+    box-shadow: 0 0 4px rgba(255, 149, 0, 0.25);
 }
 
 /* Botão de envio */
 .submit-button {
     padding: 12px 20px;
-    background-color: #007bff;
+    background-color: #ff7a0c;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -267,7 +267,7 @@ body, h1, p, ul, li, a, button, form {
 }
 
 .submit-button:hover {
-    background-color: #0056b3;
+    background-color: #ff7a0c;
 }
 
 /* Responsiveness */
@@ -297,7 +297,7 @@ body, h1, p, ul, li, a, button, form {
 .page-title {
     text-align: center;
     font-size: 2em;
-    color: #007bff;
+    color: #ff7a0c;
     margin-bottom: 20px;
     font-weight: bold;
 }
@@ -327,7 +327,7 @@ body, h1, p, ul, li, a, button, form {
 }
 
 .process-table th {
-    background-color: #007bff;
+    background-color: #ff7a0c;
     color: #fff;
     font-weight: bold;
 }
@@ -352,7 +352,7 @@ body, h1, p, ul, li, a, button, form {
 .btn-link {
     text-decoration: none;
     font-size: 1em;
-    color: #007bff;
+    color: #ff7a0c;
     cursor: pointer;
     background: none;
     border: none;
@@ -414,7 +414,7 @@ body, h1, p, ul, li, a, button, form {
 .search-button {
     padding: 10px 20px;
     margin-left: 10px;
-    background-color: #007bff;
+    background-color: #ff7a0c;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -422,7 +422,7 @@ body, h1, p, ul, li, a, button, form {
 }
 
 .search-button:hover {
-    background-color: #0056b3;
+    background-color: #9e5315;
 }
 
 /* Estilo dos resultados */
@@ -451,7 +451,7 @@ body, h1, p, ul, li, a, button, form {
     margin-top: 10px;
     padding: 8px 15px;
     text-decoration: none;
-    background-color: #007bff;
+    background-color: #ff7a0c;
     color: #fff;
     border-radius: 4px;
     font-size: 14px;
@@ -459,7 +459,7 @@ body, h1, p, ul, li, a, button, form {
 }
 
 .btn-details:hover {
-    background-color: #0056b3;
+    background-color: #8f4c15;
 }
 
 .no-results {
@@ -471,7 +471,7 @@ body, h1, p, ul, li, a, button, form {
 /* Estilo para páginas de login e registro */
 h1 {
     text-align: center;
-    color: #004AAD;
+    color: #ff7a0c;
     margin-bottom: 20px;
 }
 
@@ -506,7 +506,7 @@ button {
     padding: 10px;
     font-size: 16px;
     color: #fff;
-    background-color: #004AAD;
+    background-color: #c16316;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -514,7 +514,7 @@ button {
 }
 
 button:hover {
-    background-color: #00337A;
+    background-color: #d36e1a;
 }
 
 .redirect-text {
@@ -524,7 +524,7 @@ button:hover {
 }
 
 .redirect-text a {
-    color: #004AAD;
+    color: #ff7a0c;
     text-decoration: none;
     font-weight: bold;
 }
