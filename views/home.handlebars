@@ -31,6 +31,10 @@
             <p><strong>Ação:</strong> {{this.acao}}</p>
             <p><strong>Fórum:</strong> {{this.forum}}</p>
             <p><strong>Vara:</strong> {{this.vara}}</p>
+            <p><strong>Juiz:</strong> {{this.juiz}}</p>
+            <p><strong>Depositado Definitivos:</strong> {{#if this.depositadoDefinitivos}}Sim{{else}}Não{{/if}}</p>
+            <p><strong>Conclusão Laudo:</strong> {{this.conclusaoLaudo}}</p>
+            <p><strong>Conclusão Esclarecimentos:</strong> {{this.conclusaoEsclarecimentos}}</p>
             <a href="/process/{{this.id}}" class="details-button">Mostrar Detalhes</a>
           </div>
         {{/each}}
